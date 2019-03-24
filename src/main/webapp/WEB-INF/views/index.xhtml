@@ -8,5 +8,11 @@
 <h1>Hello</h1>
  
 <h2>Fellow Spring Framework Gurus!!!</h2>
+
+<th:block layout:fragment="js">
+    <script type="text/javascript" th:inline="javascript">
+    </script>
+    <script th:src="@{/scripts/controllers/index.js}"></script>
+</th:block>
 </body>
 </html>

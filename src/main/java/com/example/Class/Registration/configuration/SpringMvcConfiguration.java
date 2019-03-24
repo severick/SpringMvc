@@ -11,11 +11,13 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.http.CacheControl;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@SuppressWarnings("deprecation")
 @EnableWebMvc
 @PropertySource(value = {"classpath:application.properties" })
 @ComponentScan(basePackages = {"com.example.Class.Registration"})
@@ -41,6 +43,5 @@ public class SpringMvcConfiguration extends WebMvcConfigurerAdapter {
         registry.addResourceHandler( "/scripts/**" ).addResourceLocations( "classpath:/static/scripts/" ).setCacheControl( CacheControl.maxAge( DAYS_IN_A_WEEK, TimeUnit.DAYS ) );
         registry.addResourceHandler( "/styles/**" ).addResourceLocations( "classpath:/static/styles/" ).setCacheControl( CacheControl.maxAge( DAYS_IN_A_WEEK, TimeUnit.DAYS ) );
         registry.addResourceHandler( "/images/**" ).addResourceLocations( "classpath:/static/images/" ).setCacheControl( CacheControl.maxAge( DAYS_IN_A_WEEK, TimeUnit.DAYS ) );
-        registry.addResourceHandler( "/help/**" ).addResourceLocations( "classpath:/static/help/" ).setCacheControl( CacheControl.maxAge( DAYS_IN_A_WEEK, TimeUnit.DAYS ) );
     }
 }

@@ -5,7 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
   jsEntry: {
-    'controllers/index' : './scripts/controllers/index.js'
+    'controllers/index' : './scripts/controllers/index.js',
+    'controllers/home' : './scripts/controllers/home.js'
   },
   jsOutput: {
     path: path.resolve(__dirname, '../../../../target/classes/static/scripts'),
@@ -23,7 +24,7 @@ module.exports = {
       {
         test: /\.vue$/,
         include: path.resolve(__dirname, "scripts"),
-        loader: 'vue-loader',
+        use: ['vue-loader'],
       },
       {
         test: /\.css?$/,
