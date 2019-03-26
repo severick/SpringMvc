@@ -2,8 +2,8 @@ const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const Common = require('./webpack.config.common.js')
 
-module.exports = {
-    
+module.exports =  [
+	{    
       mode: 'development',
       context: path.resolve(__dirname),
       entry: Common.jsEntry,
@@ -21,8 +21,8 @@ module.exports = {
         ...Common.jsPlugins
       ],
       devtool: '#eval-source-map',
-    
-    
+	},
+    {
       mode: 'development',
       context: path.resolve(__dirname),
       entry: Common.cssEntry,
@@ -31,7 +31,8 @@ module.exports = {
       plugins: [
           ...Common.cssPlugins
       ],
- 
+    },
+    {
       mode: 'development',
       context: path.resolve(__dirname),
     entry: Common.imageEntry,
@@ -45,4 +46,5 @@ module.exports = {
         copyUnmodified: true
       })
       ]
-  }
+    }
+]
